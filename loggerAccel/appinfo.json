@@ -1,0 +1,19 @@
+{
+  "uuid": "8f547ed2-bfbd-4271-aa0f-b15ed9dc5947",
+  "shortName": "Logger",
+  "longName": "Logger",
+  "companyName": "NikhilKulkarni",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["chalk", "basalt"],
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0,
+    "KEY_DATA": 5
+  },
+  "resources": {
+    "media": []
+  }
+}
