@@ -10,6 +10,7 @@
 
 #import "DataLogger.h"
 #import "LogData.h"
+#import <CoreMotion/CoreMotion.h>
 
 @implementation ViewController
 
@@ -22,6 +23,18 @@
                                                   usingBlock:^(NSNotification *note) {
                                                       [self.tableView reloadData];
                                                   }];
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = .025;
+    self.motionManager.gyroUpdateInterval = .2;
+    
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+//                                                 NSLog(@"X: %f, Y: %f, Z: %f, Timestamp: %f", 100*accelerometerData.acceleration.x, 100*accelerometerData.acceleration.y, 100*accelerometerData.acceleration.z, accelerometerData.timestamp);
+                                                 if(error){
+                                                     
+                                                     NSLog(@"%@", error);
+                                                 }
+                                             }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
